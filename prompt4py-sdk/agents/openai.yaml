@@ -1,0 +1,7 @@
+interface:
+  display_name: "Prompt4Py SDK"
+  short_description: "Prompt4Py prompt engineering SDK"
+  default_prompt: "Use $prompt4py-sdk to design, implement, or review prompt templates with Prompt4Py."
+
+policy:
+  allow_implicit_invocation: true
