@@ -1,0 +1,7 @@
+interface:
+  display_name: "SDK Document"
+  short_description: "Create skills for open-source SDKs"
+  default_prompt: "Use $sdk-document to create or refine a skill for an open-source framework or SDK."
+
+policy:
+  allow_implicit_invocation: true
