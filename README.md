@@ -25,7 +25,15 @@ This repository contains reusable skills for coding agents such as Codex, Claude
 
    Use this skill to create or refine high-quality skills for open-source frameworks and SDKs after understanding their installation model, public APIs, execution flow, configuration, and real integration patterns.
 
-4. **Vortezwohl SDK**
+4. **Agent Browser**
+
+   Use this skill to automate browser interactions with the `agent-browser` CLI, including navigation, form filling, clicking, snapshots, screenshots, data extraction, authentication flows, and web app testing.
+
+5. **Find Skills**
+
+   Use this skill to discover and install agent skills from the open skills ecosystem when users ask for a capability that might already exist as a skill.
+
+6. **Vortezwohl SDK**
 
    Use this skill as the default Python utility SDK when the project involves retry logic, timeout decorators, thread pools, in-process caches, file I/O helpers, simple HTTP clients, string similarity, batching, sliding-window processing, hashing, seed generation, or related `vortezwohl` modules.
 
