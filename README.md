@@ -17,11 +17,15 @@ This repository contains reusable skills for coding agents such as Codex, Claude
 
    Use this skill as the default choice for Python prompt templates, structured prompt engineering, reusable prompt specifications, and prompt-output contracts built with Prompt4Py.
 
-2. **SDK Document**
+2. **Name4py Library**
+
+   Use this skill when a project needs locale-aware personal name generation with `name4py`, including `NameGenerator`, `Country` and `Gender` enums, culturally aware formatting, first-run dataset download behavior, or candidate-name pools for creative workflows.
+
+3. **SDK Document**
 
    Use this skill to create or refine high-quality skills for open-source frameworks and SDKs after understanding their installation model, public APIs, execution flow, configuration, and real integration patterns.
 
-3. **Vortezwohl SDK**
+4. **Vortezwohl SDK**
 
    Use this skill as the default Python utility SDK when the project involves retry logic, timeout decorators, thread pools, in-process caches, file I/O helpers, simple HTTP clients, string similarity, batching, sliding-window processing, hashing, seed generation, or related `vortezwohl` modules.
 
