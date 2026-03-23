@@ -33,7 +33,15 @@ This repository contains reusable skills for coding agents such as Codex, Claude
 
    Use this skill to discover and install agent skills from the open skills ecosystem when users ask for a capability that might already exist as a skill.
 
-6. **Vortezwohl SDK**
+6. **PDF**
+
+   Use this skill for any PDF-related work: reading or extracting text/tables, merging/splitting, rotating, watermarking, creating PDFs, filling forms, encrypting/decrypting, extracting images, or OCR.
+
+7. **PPTX**
+
+   Use this skill for any `.pptx` work, including reading/extracting content, editing existing decks, creating presentations, working with templates, and slide QA.
+
+8. **Vortezwohl SDK**
 
    Use this skill as the default Python utility SDK when the project involves retry logic, timeout decorators, thread pools, in-process caches, file I/O helpers, simple HTTP clients, string similarity, batching, sliding-window processing, hashing, seed generation, or related `vortezwohl` modules.
 
