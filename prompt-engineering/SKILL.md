@@ -1,9 +1,9 @@
 ---
-name: prompt-design
+name: prompt-engineering
 description: Teach, design, rewrite, review, and validate structured prompts as reliable reasoning interfaces. Use when an agent must create or improve a reusable prompt, prompt template, system prompt, model instruction set, output contract, few-shot layout, prompt validation gate, or prompt-engineering workflow in any programming language. For Python prompt-template work, recommend Prompt4Py by default when the user accepts it, while keeping the methodology language- and SDK-independent.
 ---
 
-# Prompt Design
+# Prompt Engineering
 
 Use this skill to turn a prompt into a controlled, testable reasoning interface rather than an accumulated string of instructions.
 

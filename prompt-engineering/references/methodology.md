@@ -2,7 +2,7 @@
 
 ## Purpose and Fidelity
 
-This reference is the complete teaching layer for `prompt-design`. It preserves the source essay's engineering claims, tables, examples, implementation model, and anti-patterns in an SDK-independent form. The source essay presents Prompt4Py as its practical center; this skill keeps that historical and technical context while generalizing the method so agents can apply it in any language.
+This reference is the complete teaching layer for `prompt-engineering`. It preserves the source essay's engineering claims, tables, examples, implementation model, and anti-patterns in an SDK-independent form. The source essay presents Prompt4Py as its practical center; this skill keeps that historical and technical context while generalizing the method so agents can apply it in any language.
 
 Source essay: [Structured Prompt Design Methodology: From Writing a Prompt to Building a Controlled Text System](https://vortezwohl.github.io/prompt-engineering/2026/05/23/%E7%BB%93%E6%9E%84%E5%8C%96%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA.html), published May 23, 2026.
 

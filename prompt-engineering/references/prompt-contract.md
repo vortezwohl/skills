@@ -30,7 +30,7 @@ Do not move `CONSTRAINT` earlier in the final rendered prompt merely because it 
 
 ### `_TIMESTAMP` Compatibility Rule
 
-`_TIMESTAMP` is not part of the generic prompt-design contract. Do not require or manually insert it in non-Prompt4Py implementations. When Prompt4Py renders it automatically, it appears before the canonical fields and is permitted only as a framework feature.
+`_TIMESTAMP` is not part of the generic prompt-engineering contract. Do not require or manually insert it in non-Prompt4Py implementations. When Prompt4Py renders it automatically, it appears before the canonical fields and is permitted only as a framework feature.
 
 ## Field Semantics
 
