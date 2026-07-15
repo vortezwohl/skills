@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>AI Coding 时代, 学习并理解设计模式将变得愈发重要 | vortezwohl</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="AI Coding 时代, 学习并理解设计模式将变得愈发重要" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="AI Coding 让“写出第一版代码”变得越来越便宜，但也让系统结构失控、抽象失真、维护成本陡增的问题更早暴露出来。真正决定软件质量的，已经不是代码生成速度，而是开发者能否识别变化点、划清职责边界、控制依赖扩散，并在功能不断迭代时保持系统可替换、可测试、可演化。设计模式之所以在今天反而更重要，不是因为它们是经典知识清单，而是因为它们提供了一套稳定的结构语言，帮助人类在 AI 高速产出代码的环境里持续做出正确的架构判断。理解设计模式，本质上不是为了背诵名词，而是为了在速度与复杂度同时上升的时代，重新掌握软件工程最核心的秩序感。" />
+<meta property="og:description" content="AI Coding 让“写出第一版代码”变得越来越便宜，但也让系统结构失控、抽象失真、维护成本陡增的问题更早暴露出来。真正决定软件质量的，已经不是代码生成速度，而是开发者能否识别变化点、划清职责边界、控制依赖扩散，并在功能不断迭代时保持系统可替换、可测试、可演化。设计模式之所以在今天反而更重要，不是因为它们是经典知识清单，而是因为它们提供了一套稳定的结构语言，帮助人类在 AI 高速产出代码的环境里持续做出正确的架构判断。理解设计模式，本质上不是为了背诵名词，而是为了在速度与复杂度同时上升的时代，重新掌握软件工程最核心的秩序感。" />
+<link rel="canonical" href="https://vortezwohl.github.io/software-engineering/2026/05/22/AI-Coding-%E6%97%B6%E4%BB%A3-%E7%90%86%E8%A7%A3%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%8F%98%E5%BE%97%E6%9B%B4%E5%8A%A0%E9%87%8D%E8%A6%81.html" />
+<meta property="og:url" content="https://vortezwohl.github.io/software-engineering/2026/05/22/AI-Coding-%E6%97%B6%E4%BB%A3-%E7%90%86%E8%A7%A3%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%8F%98%E5%BE%97%E6%9B%B4%E5%8A%A0%E9%87%8D%E8%A6%81.html" />
+<meta property="og:site_name" content="vortezwohl" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-05-22T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="AI Coding 时代, 学习并理解设计模式将变得愈发重要" />
+<meta name="twitter:site" content="@vortezwohl" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-05-22T00:00:00+00:00","datePublished":"2026-05-22T00:00:00+00:00","description":"AI Coding 让“写出第一版代码”变得越来越便宜，但也让系统结构失控、抽象失真、维护成本陡增的问题更早暴露出来。真正决定软件质量的，已经不是代码生成速度，而是开发者能否识别变化点、划清职责边界、控制依赖扩散，并在功能不断迭代时保持系统可替换、可测试、可演化。设计模式之所以在今天反而更重要，不是因为它们是经典知识清单，而是因为它们提供了一套稳定的结构语言，帮助人类在 AI 高速产出代码的环境里持续做出正确的架构判断。理解设计模式，本质上不是为了背诵名词，而是为了在速度与复杂度同时上升的时代，重新掌握软件工程最核心的秩序感。","headline":"AI Coding 时代, 学习并理解设计模式将变得愈发重要","mainEntityOfPage":{"@type":"WebPage","@id":"https://vortezwohl.github.io/software-engineering/2026/05/22/AI-Coding-%E6%97%B6%E4%BB%A3-%E7%90%86%E8%A7%A3%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%8F%98%E5%BE%97%E6%9B%B4%E5%8A%A0%E9%87%8D%E8%A6%81.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://vortezwohl.github.io/logo.png"}},"url":"https://vortezwohl.github.io/software-engineering/2026/05/22/AI-Coding-%E6%97%B6%E4%BB%A3-%E7%90%86%E8%A7%A3%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%8F%98%E5%BE%97%E6%9B%B4%E5%8A%A0%E9%87%8D%E8%A6%81.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="https://vortezwohl.github.io/feed.xml" title="vortezwohl" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+<link rel="icon" href="https://vortezwohl.github.io/favicon.ico" type="image/x-icon">
+<!-- 引入 KaTeX CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+<!-- 引入 KaTeX JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+<!-- 引入 auto-render 包 -->
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },  // 块级公式
+        { left: "\\[", right: "\\]", display: true }, // 块级公式
+        { left: "$", right: "$", display: false },   // 行内公式
+        { left: "\\(", right: "\\)", display: false } // 行内公式
+      ]
+    });
+  });
+</script>
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">vortezwohl</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/logo.png" class="author-avatar u-photo align-center" alt="vortezwohl">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">vortezwohl</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:vortez.wohl@gmail.com">vortez.wohl@gmail.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<!---->
+<!--<div class="sidebar-section feed-subscribe">-->
+<!--  <a href="/feed.xml">-->
+<!--    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>-->
+<!--  </a>-->
+<!--</div>-->
+<!---->
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/vortezwohl"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://linkedin.com/in/vortez-wohl-677225353"><i class="fab fa-linkedin fa-2x" title="LinkedIn"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://twitter.com/vortezwohl"><i class="fab fa-twitter fa-2x" title="X"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">AI Coding 时代, 学习并理解设计模式将变得愈发重要</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2026-05-22T00:00:00+00:00" itemprop="datePublished">
+        May 22, 2026
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">vortezwohl</span></span>, 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">吴子豪</span></span>, 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Codex</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <article id="design-patterns-essay" lang="zh-CN">
+  <style>
+    #design-patterns-essay {
+      --essay-text: #171d24;
+      --essay-text-strong: #0f141a;
+      --essay-text-muted: #42505c;
+      --essay-kicker: #5b6976;
+      --essay-border: #d5dde5;
+      --essay-border-soft: #e2e8ef;
+      --essay-panel-bg: #f8fbfd;
+      --essay-panel-strong-bg: #eef4f8;
+      --essay-hero-bg-start: #f3f8fb;
+      --essay-hero-bg-end: #edf4f8;
+      --essay-hero-grid: rgba(61, 93, 119, 0.05);
+      --essay-summary-bg: rgba(255, 255, 255, 0.84);
+      --essay-button-bg: #f3f7fa;
+      --essay-button-text: #16202a;
+      --essay-button-active-bg: #182531;
+      --essay-button-active-text: #f6fbff;
+      --essay-code-bg: #eef4f8;
+      --essay-code-inline-bg: #e7eff4;
+      --essay-code-text: #12202d;
+      --essay-output-bg: #182531;
+      --essay-output-text: #edf7ff;
+      --essay-link: #205f86;
+      --essay-link-border: rgba(32, 95, 134, 0.34);
+      --essay-link-border-hover: rgba(32, 95, 134, 0.82);
+      --essay-accent: #3f7aa2;
+      color: var(--essay-text);
+      font-family: "Georgia", "Times New Roman", "Noto Serif SC", serif;
+      line-height: 1.85;
+    }
+
+    #design-patterns-essay[data-tone="dark"] {
+      --essay-text: #d8e4ec;
+      --essay-text-strong: #f5fbff;
+      --essay-text-muted: #b9cad7;
+      --essay-kicker: #92adc1;
+      --essay-border: rgba(228, 240, 248, 0.18);
+      --essay-border-soft: rgba(228, 240, 248, 0.12);
+      --essay-panel-bg: rgba(24, 32, 40, 0.92);
+      --essay-panel-strong-bg: rgba(34, 45, 56, 0.96);
+      --essay-hero-bg-start: rgba(24, 33, 41, 0.98);
+      --essay-hero-bg-end: rgba(16, 22, 28, 0.98);
+      --essay-hero-grid: rgba(197, 223, 241, 0.08);
+      --essay-summary-bg: rgba(39, 50, 62, 0.86);
+      --essay-button-bg: rgba(39, 50, 61, 0.94);
+      --essay-button-text: #e9f5fc;
+      --essay-button-active-bg: #dbeefa;
+      --essay-button-active-text: #142330;
+      --essay-code-bg: rgba(18, 26, 34, 0.98);
+      --essay-code-inline-bg: rgba(56, 74, 90, 0.78);
+      --essay-code-text: #edf8ff;
+      --essay-output-bg: #e7f4fb;
+      --essay-output-text: #10202d;
+      --essay-link: #9bdcff;
+      --essay-link-border: rgba(155, 220, 255, 0.42);
+      --essay-link-border-hover: rgba(155, 220, 255, 0.95);
+      --essay-accent: #8bc7e7;
+    }
+
+    #design-patterns-essay .essay-shell {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 1.5rem 0 3rem;
+    }
+
+    #design-patterns-essay .essay-hero {
+      position: relative;
+      padding: 2.4rem 2rem 1.8rem;
+      border: 1px solid var(--essay-border);
+      background: linear-gradient(180deg, var(--essay-hero-bg-start) 0%, var(--essay-hero-bg-end) 100%);
+    }
+
+    #design-patterns-essay .essay-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(var(--essay-hero-grid) 1px, transparent 1px);
+      background-size: 100% 1.8rem;
+      pointer-events: none;
+    }
+
+    #design-patterns-essay .hero-kicker {
+      margin: 0 0 0.9rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--essay-kicker);
+    }
+
+    #design-patterns-essay .hero-title {
+      margin: 0;
+      font-size: 2.4rem;
+      line-height: 1.18;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    #design-patterns-essay .hero-lead {
+      max-width: 52rem;
+      margin: 1.25rem 0 0;
+      font-size: 1.05rem;
+      color: var(--essay-text-muted);
+    }
+
+    #design-patterns-essay .hero-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 1.5rem;
+    }
+
+    #design-patterns-essay .hero-summary-item {
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--essay-border);
+      background: var(--essay-summary-bg);
+    }
+
+    #design-patterns-essay .hero-summary-item strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: 0.94rem;
+    }
+
+    #design-patterns-essay .essay-body {
+      margin-top: 1.6rem;
+    }
+
+    #design-patterns-essay .section-block {
+      margin-top: 2.2rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--essay-border-soft);
+    }
+
+    #design-patterns-essay .section-block:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    #design-patterns-essay h2,
+    #design-patterns-essay h3,
+    #design-patterns-essay h4 {
+      font-family: "Georgia", "Times New Roman", "Noto Serif SC", serif;
+      line-height: 1.32;
+      color: var(--essay-text-strong);
+    }
+
+    #design-patterns-essay h2 {
+      margin: 0 0 1rem;
+      font-size: 1.7rem;
+    }
+
+    #design-patterns-essay h3 {
+      margin: 1.4rem 0 0.7rem;
+      font-size: 1.22rem;
+    }
+
+    #design-patterns-essay p {
+      margin: 0.9rem 0;
+    }
+
+    #design-patterns-essay ul,
+    #design-patterns-essay ol {
+      margin: 0.8rem 0 0.8rem 1.3rem;
+      padding: 0;
+    }
+
+    #design-patterns-essay li {
+      margin: 0.35rem 0;
+    }
+
+    #design-patterns-essay .argument-box,
+    #design-patterns-essay .note-box,
+    #design-patterns-essay .demo-box,
+    #design-patterns-essay .pattern-card,
+    #design-patterns-essay .ref-box {
+      border: 1px solid var(--essay-border);
+      background: var(--essay-panel-bg);
+    }
+
+    #design-patterns-essay .argument-box,
+    #design-patterns-essay .note-box,
+    #design-patterns-essay .demo-box,
+    #design-patterns-essay .ref-box {
+      padding: 1rem 1.1rem;
+      margin: 1rem 0;
+    }
+
+    #design-patterns-essay .argument-box strong,
+    #design-patterns-essay .note-box strong,
+    #design-patterns-essay .ref-box strong {
+      color: var(--essay-text-strong);
+    }
+
+    #design-patterns-essay .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.98rem;
+    }
+
+    #design-patterns-essay .comparison-table th,
+    #design-patterns-essay .comparison-table td {
+      padding: 0.8rem 0.9rem;
+      border: 1px solid var(--essay-border);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    #design-patterns-essay .comparison-table th {
+      background: var(--essay-panel-strong-bg);
+      font-weight: 700;
+    }
+
+    #design-patterns-essay .pattern-index {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 1.1rem 0 1.3rem;
+    }
+
+    #design-patterns-essay .pattern-card {
+      padding: 1rem;
+    }
+
+    #design-patterns-essay .pattern-card h3 {
+      margin-top: 0;
+    }
+
+    #design-patterns-essay .pattern-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.3rem 0 1rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    #design-patterns-essay .pattern-nav button {
+      border: 1px solid var(--essay-border);
+      background: var(--essay-button-bg);
+      color: var(--essay-button-text);
+      padding: 0.42rem 0.75rem;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    #design-patterns-essay .pattern-nav button.is-active {
+      background: var(--essay-button-active-bg);
+      color: var(--essay-button-active-text);
+      border-color: var(--essay-button-active-bg);
+    }
+
+    #design-patterns-essay .pattern-panel {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    #design-patterns-essay .pattern-panel.is-active {
+      display: block;
+    }
+
+    #design-patterns-essay .pattern-head {
+      border-left: 3px solid var(--essay-accent);
+      padding-left: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    #design-patterns-essay .demo-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    #design-patterns-essay .demo-toolbar button {
+      border: 1px solid var(--essay-border);
+      background: var(--essay-button-bg);
+      color: var(--essay-button-text);
+      padding: 0.42rem 0.8rem;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    #design-patterns-essay pre {
+      margin: 0;
+      padding: 1rem;
+      overflow-x: auto;
+      background: var(--essay-code-bg);
+      border: 1px solid var(--essay-border);
+      color: var(--essay-code-text);
+      line-height: 1.6;
+    }
+
+    #design-patterns-essay code {
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 0.92em;
+    }
+
+    #design-patterns-essay :not(pre) > code {
+      padding: 0.08rem 0.32rem;
+      background: var(--essay-code-inline-bg);
+    }
+
+    #design-patterns-essay .demo-output {
+      margin-top: 0.8rem;
+      padding: 0.95rem 1rem;
+      background: var(--essay-output-bg);
+      color: var(--essay-output-text);
+      min-height: 3.4rem;
+      white-space: pre-wrap;
+      font-family: "Consolas", "Courier New", monospace;
+    }
+
+    #design-patterns-essay .essay-divider {
+      margin: 2rem 0 1.5rem;
+      border: 0;
+      border-top: 1px solid var(--essay-border);
+    }
+
+    #design-patterns-essay .ref-box p {
+      margin: 0.55rem 0;
+      font-size: 0.98rem;
+    }
+
+    #design-patterns-essay .ref-list-html {
+      margin: 0;
+      padding: 0;
+    }
+
+    #design-patterns-essay .ref-item {
+      margin: 0.7rem 0;
+      font-size: 0.98rem;
+    }
+
+    #design-patterns-essay .ref-index {
+      display: inline-block;
+      min-width: 2.2rem;
+    }
+
+    #design-patterns-essay .cite-ref {
+      display: inline-block;
+      margin-left: 0.18rem;
+      font-size: 0.82em;
+      vertical-align: super;
+      line-height: 1;
+    }
+
+    #design-patterns-essay .cite-ref a {
+      border-bottom: 0;
+    }
+
+    #design-patterns-essay a {
+      color: var(--essay-link);
+      text-decoration: none;
+      border-bottom: 1px solid var(--essay-link-border);
+    }
+
+    #design-patterns-essay a:hover {
+      border-bottom-color: var(--essay-link-border-hover);
+    }
+
+    @media (max-width: 860px) {
+      #design-patterns-essay .hero-summary,
+      #design-patterns-essay .pattern-index {
+        grid-template-columns: 1fr;
+      }
+
+      #design-patterns-essay .essay-shell {
+        padding-top: 0.5rem;
+      }
+
+      #design-patterns-essay .essay-hero {
+        padding: 1.6rem 1.2rem;
+      }
+
+      #design-patterns-essay .hero-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+
+  <div class="essay-shell">
+    <header class="essay-hero">
+      <p class="hero-kicker">Software Architecture / AI Coding / Design Patterns</p>
+      <h1 class="hero-title">AI Coding 时代, 架构能力才是程序员的核心竞争力</h1>
+      <p class="hero-lead">
+        如果说过去的软件开发难点在“把功能写出来”，那么今天更难的部分已经变成“让快速生成的大量代码仍然可演化、可协作、可验证”。
+        设计模式的价值，不再只是面试题或教科书知识，而是帮助人类在 AI 时代重新掌控结构、边界和变化。
+      </p>
+      <section class="hero-summary">
+        <div class="hero-summary-item">
+          <strong>这篇文章讲什么</strong>
+          从思想到实践，系统解释 10 大设计模式在 AI Coding 时代为什么更重要。
+        </div>
+        <div class="hero-summary-item">
+          <strong>怎么讲</strong>
+          每个模式都讲变化点、结构意图、适用场景、反例、框架案例和 Python demo。
+        </div>
+        <div class="hero-summary-item">
+          <strong>为什么要这样讲</strong>
+          因为今天最需要的不是会背定义，而是能在 AI 生成代码时做对结构判断。
+        </div>
+      </section>
+    </header>
+
+    <div class="essay-body">
+      <section class="section-block">
+        <h2>一、为什么 AI Coding 时代反而更需要设计模式</h2>
+        <p>
+          很多人会误以为，既然 AI 已经可以大段生成代码，设计模式的重要性应该下降。现实恰好相反。AI 让“实现能力”变得廉价，结构失误却因此被成倍放大。
+          过去一个开发者亲手写几十个分支时，至少会在编码过程中逐渐感受到系统正在失控；今天模型可以在几十秒里生成上百行看似合理的代码，如果没有模式思维约束，系统会更快进入不可维护状态。
+        </p>
+        <p>
+          设计模式本质上不是“优雅类图”，而是工程世界对重复变化结构的压缩表达。它们关心的不是语言技巧，而是下面这些更根本的问题：哪里在变，谁该知道变化，变化该如何被隔离，系统该如何测试，以及多人协作时影响面如何被控制。
+        </p>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>AI Coding 中常见问题</th>
+              <th>典型表现</th>
+              <th>背后缺失的结构判断</th>
+              <th>模式能解决什么</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>功能越加越乱</td>
+              <td>每来一个需求就多一个分支</td>
+              <td>没有识别出算法或流程中的变化点</td>
+              <td><code>Strategy</code>、<code>Template Method</code></td>
+            </tr>
+            <tr>
+              <td>依赖横向扩散</td>
+              <td>到处直接创建具体对象</td>
+              <td>创建与使用没有分离</td>
+              <td><code>Factory Method</code>、<code>Abstract Factory</code></td>
+            </tr>
+            <tr>
+              <td>横切逻辑失控</td>
+              <td>日志、缓存、鉴权散在各处</td>
+              <td>没有把增强或控制逻辑收束到边界层</td>
+              <td><code>Decorator</code>、<code>Proxy</code>、<code>Facade</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="argument-box">
+          <strong>一个更尖锐的说法：</strong>
+          在 AI Coding 时代，设计模式的重要性不是体现在“让代码更漂亮”，而是体现在“防止模型把错误结构快速复制几十遍”。
+        </div>
+      </section>
+
+      <section class="section-block">
+        <h2>二、理解设计模式，首先要理解“变化点”</h2>
+        <p>
+          大多数教材会从定义开始讲模式，但工程上更有效的顺序是反过来：先看变化点，再看结构。你真的理解一个设计模式，不是因为你记住了它的标准定义，而是因为你能回答五个问题。
+        </p>
+        <ol>
+          <li>这个模式到底在隔离哪一种变化？是算法、创建过程、通知链路，还是访问控制？</li>
+          <li>它额外引入了什么结构成本？接口、对象族、代理层还是继承层级？</li>
+          <li>它和相邻模式的边界在哪里？例如 Decorator 与 Proxy，Factory Method 与 Abstract Factory。</li>
+          <li>它在现代框架里通常如何出现？是显式类层级，还是配置、容器、回调、装饰器语法糖。</li>
+          <li>如果不用它，系统通常会退化成什么坏味道？条件泥潭、重复编排、全局状态污染，还是耦合扩散。</li>
+        </ol>
+
+        <div class="note-box">
+          <strong>本文的核心原则：</strong>
+          设计模式不是先验宗教，而是变化管理工具。真正的高水平不是“到处套模式”，而是“看见变化时知道该不该上模式，以及该上哪一种模式”。
+        </div>
+      </section>
+
+      <section class="section-block">
+        <h2>三、10 大设计模式全景图</h2>
+        <div class="pattern-index">
+          <section class="pattern-card">
+            <h3>创建型模式</h3>
+            <p>关注对象如何被创建，以及创建决策如何从使用方移走。</p>
+            <p><code>Factory Method</code> / <code>Abstract Factory</code> / <code>Singleton</code></p>
+          </section>
+          <section class="pattern-card">
+            <h3>结构型模式</h3>
+            <p>关注对象如何被组织、包裹、兼容、增强和简化。</p>
+            <p><code>Adapter</code> / <code>Decorator</code> / <code>Proxy</code> / <code>Facade</code></p>
+          </section>
+          <section class="pattern-card">
+            <h3>行为型模式</h3>
+            <p>关注职责如何流动，算法如何替换，事件如何传播，流程如何固定。</p>
+            <p><code>Strategy</code> / <code>Observer</code> / <code>Template Method</code></p>
+          </section>
+          <section class="pattern-card">
+            <h3>AI 时代的附加含义</h3>
+            <p>这些模式都是“给模型划边界”的方法，让生成代码时的自由度不会直接演化成结构灾难。</p>
+          </section>
+        </div>
+
+        <ul class="pattern-nav" id="pattern-nav">
+          <li><button type="button" data-pattern-target="strategy">Strategy</button></li>
+          <li><button type="button" data-pattern-target="observer">Observer</button></li>
+          <li><button type="button" data-pattern-target="factory">Factory Method</button></li>
+          <li><button type="button" data-pattern-target="abstract-factory">Abstract Factory</button></li>
+          <li><button type="button" data-pattern-target="singleton">Singleton</button></li>
+          <li><button type="button" data-pattern-target="adapter">Adapter</button></li>
+          <li><button type="button" data-pattern-target="decorator">Decorator</button></li>
+          <li><button type="button" data-pattern-target="proxy">Proxy</button></li>
+          <li><button type="button" data-pattern-target="template-method">Template Method</button></li>
+          <li><button type="button" data-pattern-target="facade">Facade</button></li>
+        </ul>
+
+        <section class="pattern-panel" data-pattern-panel="strategy">
+          <header class="pattern-head">
+            <h3>Strategy：把变化算法从主流程里拔出来</h3>
+            <p>关键词：算法家族、运行时替换、避免条件泥潭。</p>
+          </header>
+          <p>
+            Strategy 的本质，是承认“算法”本身就是变化点。折扣规则、路由策略、排序规则、召回策略、风控规则，这些业务场景都有一个共同点：目标一致，但实现规则经常变化。
+            如果主流程中不断累加 <code>if / elif / else</code>，代码很快就会变成条件泥潭。
+          </p>
+          <p>
+            在 AI Coding 场景里，Strategy 的价值尤其大。因为模型非常擅长为每个新需求多写一个分支，却不会主动把这些分支识别为“同一接口下的一组可替换算法”。
+            因此，是否能从一堆相似条件里抽出策略接口，往往决定系统是继续保持可扩展，还是在第三、第四次迭代后开始僵化。
+          </p>
+          <ul>
+            <li>适合：定价、排序、调度、推荐、规则匹配、审核。</li>
+            <li>不适合：只有两个稳定分支且几乎不扩展的简单逻辑。</li>
+            <li>典型框架感知：Spring 中大量面向接口的资源访问和策略替换思想都能映射到它。<span class="cite-ref"><a href="#ref-3">[3]</a></span></li>
+          </ul>
+
+          <div class="demo-box">
+            <div class="demo-toolbar">
+              <button type="button" data-run-demo="strategy">运行 demo</button>
+              <button type="button" data-copy-code="code-strategy">复制代码</button>
+            </div>
+            <pre id="code-strategy"><code>from abc import ABC, abstractmethod
+
+
+class PricingStrategy(ABC):
+    @abstractmethod
+    def price(self, amount: float) -> float:
+        raise NotImplementedError
+
+
+class PercentageDiscount(PricingStrategy):
+    def __init__(self, percent: float) -> None:
+        self.percent = percent
+
+    def price(self, amount: float) -> float:
+        return round(amount * (1 - self.percent), 2)
+
+
+class Checkout:
+    def __init__(self, strategy: PricingStrategy) -> None:
+        self.strategy = strategy
+
+    def total(self, amount: float) -> float:
+        return self.strategy.price(amount)</code></pre>
+            <div class="demo-output" data-demo-output="strategy">等待运行...</div>
+          </div>
+        </section>
+
+        <section class="pattern-panel" data-pattern-panel="observer">
+          <header class="pattern-head">
+            <h3>Observer：把“发生了什么”与“谁来响应”拆开</h3>
+            <p>关键词：事件驱动、发布订阅、认知解耦。</p>
+          </header>
+          <p>
+            Observer 解决的问题不是“通知别人很麻烦”，而是“发布方不应该知道所有消费者是谁”。订单支付成功之后，库存、积分、通知、审计、风控都可能要做事。
+            如果支付主流程亲自调所有模块，每加一个消费者都要改主流程。
+          </p>
+          <p>
+            在 AI 生成代码时，这种问题很常见。模型会自然地把“顺手做的事”继续塞进主链路里。Observer 提供了一种更成熟的结构：主流程只发布事实，附加行为由订阅者自己接住。
+          </p>
+          <ul>
+            <li>适合：通知、事件扩展点、插件机制、领域事件。</li>
+            <li>风险：不能把它当成一致性银弹，事务语义仍需单独设计。</li>
+            <li>典型案例：Spring <code>ApplicationEventPublisher</code>、Django Signals。<span class="cite-ref"><a href="#ref-4">[4]</a><a href="#ref-7">[7]</a></span></li>
+          </ul>
+
+          <div class="demo-box">
+            <div class="demo-toolbar">
+              <button type="button" data-run-demo="observer">运行 demo</button>
+              <button type="button" data-copy-code="code-observer">复制代码</button>
+            </div>
+            <pre id="code-observer"><code>class EventBus:
+    def __init__(self) -> None:
+        self._subscribers: dict[str, list] = {}
+
+    def subscribe(self, event: str, fn) -> None:
+        self._subscribers.setdefault(event, []).append(fn)
+
+    def publish(self, event: str, payload: dict) -> None:
+        for fn in self._subscribers.get(event, []):
+            fn(payload)</code></pre>
+            <div class="demo-output" data-demo-output="observer">等待运行...</div>
+          </div>
+        </section>
+
+        <section class="pattern-panel" data-pattern-panel="factory">
+          <header class="pattern-head">
+            <h3>Factory Method：把创建哪种对象的决定延迟出去</h3>
+            <p>关键词：创建延迟、解耦具体类、集中扩展入口。</p>
+          </header>
+          <p>
+            Factory Method 关注的是“创建过程”本身的变化。当调用方只关心“我要一个报表对象”“我要一个解析器”“我要一个客户端”时，它不应该同时承担“到底创建 Json 还是 Html，Local 还是 Remote”的决定。
+          </p>
+          <p>
+            这在框架中极其常见。对象创建往往伴随配置读取、依赖装配、生命周期管理，远不只是一个简单的构造函数。把具体实例化决策放到工厂体系中，可以让新类型接入时影响面更集中。
+          </p>
+          <ul>
+            <li>适合：导出器、解析器、存储后端、客户端实例。</li>
+            <li>典型案例：Flask Application Factory，Spring Bean 创建思想。<span class="cite-ref"><a href="#ref-8">[8]</a><a href="#ref-3">[3]</a></span></li>
+          </ul>
+
+          <div class="demo-box">
+            <div class="demo-toolbar">
+              <button type="button" data-run-demo="factory">运行 demo</button>
+              <button type="button" data-copy-code="code-factory">复制代码</button>
+            </div>
+            <pre id="code-factory"><code>class JsonReport:
+    def render(self) -> str:
+        return '{"status": "ok"}'
+
+
+class HtmlReport:
+    def render(self) -> str:
+        return "&lt;p&gt;ok&lt;/p&gt;"
+
+
+class JsonReportCreator:
+    def create_report(self):
+        return JsonReport()
+
+
+class HtmlReportCreator:
+    def create_report(self):
+        return HtmlReport()</code></pre>
+            <div class="demo-output" data-demo-output="factory">等待运行...</div>
+          </div>
+        </section>
+
+        <section class="pattern-panel" data-pattern-panel="abstract-factory">
+          <header class="pattern-head">
+            <h3>Abstract Factory：创建的不是一个对象，而是一整套兼容对象</h3>
+            <p>关键词：对象族、一致性、成套切换。</p>
+          </header>
+          <p>
+            如果 Factory Method 关注“创建哪个对象”，那么 Abstract Factory 关注“创建哪一整套彼此兼容的对象族”。典型例子是主题系统、数据库方言、云厂商适配层。
+            你切换的不是一个按钮，而是一整套按钮、对话框、输入框、颜色系统。
+          </p>
+          <p>
+            这在 AI 生成前端或 SDK 集成代码时尤其有用。因为模型常常会在局部生成看似合理但整体风格不一致的组件，而 Abstract Factory 可以把“一致性”本身结构化。
+          </p>
+          <ul>
+            <li>适合：主题系统、多平台组件、多供应商 SDK。</li>
+            <li>边界辨析：Factory Method 面向单对象；Abstract Factory 面向对象家族。</li>
+          </ul>
+
+          <div class="demo-box">
+            <div class="demo-toolbar">
+              <button type="button" data-run-demo="abstract-factory">运行 demo</button>
+              <button type="button" data-copy-code="code-abstract-factory">复制代码</button>
+            </div>
+            <pre id="code-abstract-factory"><code>class DarkThemeFactory:
+    def create_button(self) -> str:
+        return "dark-button"
+
+    def create_dialog(self) -> str:
+        return "dark-dialog"
+
+
+class LightThemeFactory:
+    def create_button(self) -> str:
+        return "light-button"
+
+    def create_dialog(self) -> str:
+        return "light-dialog"</code></pre>
+            <div class="demo-output" data-demo-output="abstract-factory">等待运行...</div>
+          </div>
+        </section>
+
+        <section class="pattern-panel" data-pattern-panel="singleton">
+          <header class="pattern-head">
+            <h3>Singleton：全局唯一很诱人，但必须克制</h3>
+            <p>关键词：唯一实例、全局访问、状态污染风险。</p>
+          </header>
+          <p>
+            Singleton 是最容易被误用的模式之一。它应该表达的是“语义上全局唯一”的资源，例如进程级配置、注册表、资源门面，而不是“我懒得传递依赖，所以做成全局变量”。
+          </p>
+          <p>
+            在现代工程里，更推荐让容器管理 singleton scope，而不是每个业务类都自己实现一遍单例。因为手写单例很容易带来测试污染、状态残留和并发语义不清。
+          </p>
+          <ul>
+            <li>适合：配置对象、全局资源注册表。</li>
+            <li>不适合：普通业务依赖、可变状态很多的对象。</li>
+            <li>现代实践：能交给 DI 容器，就尽量别手写。</li>
+          </ul>
+
+          <div class="demo-box">
+            <div class="demo-toolbar">
+              <button type="button" data-run-demo="singleton">运行 demo</button>
+              <button type="button" data-copy-code="code-singleton">复制代码</button>
+            </div>
+            <pre id="code-singleton"><code>class AppConfig:
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+            cls._instance.debug = False
+        return cls._instance</code></pre>
+            <div class="demo-output" data-demo-output="singleton">等待运行...</div>
+          </div>
+        </section>
+
+        <section class="pattern-panel" data-pattern-panel="adapter">
+          <header class="pattern-head">
+            <h3>Adapter：旧系统不动，新系统照样接上</h3>
+            <p>关键词：接口翻译、兼容层、遗留系统接入。</p>
+          </header>
+          <p>
+            Adapter 适合处理“旧接口与新接口不兼容”的问题。真正的软件工程很少是从零起步，更多是在遗留系统、第三方 API、旧 SDK 和新模块之间搭桥。
+            Adapter 的价值在于：你不需要重写旧系统，只需要补一层翻译。
+          </p>
+          <p>
+            在 AI Coding 场景里，这一点非常现实。模型通常会根据“理想接口”生成新代码，而现实项目里往往是一堆历史包袱。Adapter 就是让理想结构与现实系统相遇时不至于撞碎的缓冲层。
+          </p>
+          <ul>
+            <li>适合：遗留系统整合、第三方 SDK 统一封装、支付短信网关接入。</li>
+            <li>典型案例：Spring MVC <code>HandlerAdapter</code>，Requests <code>HTTPAdapter</code>。<span class="cite-ref"><a href="#ref-5">[5]</a><a href="#ref-9">[9]</a></span></li>
+          </ul>
+
+          <div class="demo-box">
+            <div class="demo-toolbar">
+              <button type="button" data-run-demo="adapter">运行 demo</button>
+              <button type="button" data-copy-code="code-adapter">复制代码</button>
+            </div>
+            <pre id="code-adapter"><code>class LegacySmsService:
+    def send_sms(self, mobile: str, content: str) -> str:
+        return f"SMS to {mobile}: {content}"
+
+
+class SmsAdapter:
+    def __init__(self, legacy: LegacySmsService) -> None:
+        self.legacy = legacy
+
+    def send(self, user: str, message: str) -> str:
+        return self.legacy.send_sms(user, message)</code></pre>
+            <div class="demo-output" data-demo-output="adapter">等待运行...</div>
+          </div>
+        </section>
+
+        <section class="pattern-panel" data-pattern-panel="decorator">
+          <header class="pattern-head">
+            <h3>Decorator：不改原类，也能一层层加能力</h3>
+            <p>关键词：职责增强、组合叠加、横切能力。</p>
+          </header>
+          <p>
+            Decorator 最适合日志、缓存、鉴权、重试、限流、埋点、压缩这类横切增强。它和继承相比更灵活，因为能力可以按需叠加，而不是预先派生出一大堆组合子类。
+          </p>
+          <p>
+            Python 里的装饰器语法，本质就是这种思想的广泛普及。一个 <code>@cache</code>、<code>@retry</code>、<code>@trace</code>，其实都在告诉你：增强职责，不一定非得改原函数。
+          </p>
+          <ul>
+            <li>适合：横切能力、按需叠加的增强行为。</li>
+            <li>边界辨析：Decorator 是增强职责，不是控制访问。</li>
+          </ul>
+
+          <div class="demo-box">
+            <div class="demo-toolbar">
+              <button type="button" data-run-demo="decorator">运行 demo</button>
+              <button type="button" data-copy-code="code-decorator">复制代码</button>
+            </div>
+            <pre id="code-decorator"><code>class BasicSender:
+    def send(self, message: str) -> str:
+        return f"send:{message}"
+
+
+class TimestampDecorator:
+    def __init__(self, wrapped) -> None:
+        self.wrapped = wrapped
+
+    def send(self, message: str) -> str:
+        return self.wrapped.send(f"[2026-05-22] {message}")</code></pre>
+            <div class="demo-output" data-demo-output="decorator">等待运行...</div>
+          </div>
+        </section>
+
+        <section class="pattern-panel" data-pattern-panel="proxy">
+          <header class="pattern-head">
+            <h3>Proxy：接口相同，但访问行为不同</h3>
+            <p>关键词：控制访问、懒加载、远程代理、权限边界。</p>
+          </header>
+          <p>
+            Proxy 的结构往往和 Decorator 很像，但意图不同。Decorator 是在增强职责，Proxy 是在控制访问。
+            你看上去在访问真实对象，实际上先经过一个控制层，它可以负责权限校验、懒加载、缓存命中、远程调用、事务包裹。
+          </p>
+          <p>
+            现代框架里，Proxy 极其重要。Spring AOP 的很多能力都基于代理机制；ORM 的懒加载对象本身也是代理思想的工程化体现。<span class="cite-ref"><a href="#ref-5">[5]</a></span>
+          </p>
+          <ul>
+            <li>适合：权限控制、事务代理、远程服务、本地缓存前置。</li>
+            <li>边界辨析：结构相似不等于模式相同，关键看意图。</li>
+          </ul>
+
+          <div class="demo-box">
+            <div class="demo-toolbar">
+              <button type="button" data-run-demo="proxy">运行 demo</button>
+              <button type="button" data-copy-code="code-proxy">复制代码</button>
+            </div>
+            <pre id="code-proxy"><code>class FileStore:
+    def read(self, path: str) -> str:
+        return f"content({path})"
+
+
+class AccessProxy:
+    def __init__(self, store: FileStore, allowed: set[str]) -> None:
+        self.store = store
+        self.allowed = allowed
+
+    def read(self, path: str) -> str:
+        if path not in self.allowed:
+            raise PermissionError(path)
+        return self.store.read(path)</code></pre>
+            <div class="demo-output" data-demo-output="proxy">等待运行...</div>
+          </div>
+        </section>
+
+        <section class="pattern-panel" data-pattern-panel="template-method">
+          <header class="pattern-head">
+            <h3>Template Method：先固定流程骨架，再留局部变化</h3>
+            <p>关键词：算法骨架、步骤延迟、稳定流程。</p>
+          </header>
+          <p>
+            Template Method 非常适合那种“主流程稳定，但局部步骤会换”的问题。
+            例如抽取、转换、加载，或者获取连接、执行核心逻辑、清理资源。你不希望调用方每次都自己拼整个流程，也不希望所有细节都被写死在同一个实现里。
+          </p>
+          <p>
+            它的魅力在于：流程顺序由模板保证，变化点则交给子类实现。Spring 的 <code>JdbcTemplate</code> 正是这种思想的经典工业案例。<span class="cite-ref"><a href="#ref-6">[6]</a></span>
+          </p>
+          <ul>
+            <li>适合：ETL、数据库访问、固定业务管道。</li>
+            <li>风险：过度依赖继承会走向层级膨胀，应警惕变成继承地狱。</li>
+          </ul>
+
+          <div class="demo-box">
+            <div class="demo-toolbar">
+              <button type="button" data-run-demo="template-method">运行 demo</button>
+              <button type="button" data-copy-code="code-template-method">复制代码</button>
+            </div>
+            <pre id="code-template-method"><code>class DataPipeline:
+    def run(self) -> str:
+        raw = self.extract()
+        clean = self.transform(raw)
+        return self.load(clean)
+
+    def extract(self) -> str:
+        raise NotImplementedError
+
+    def transform(self, raw: str) -> str:
+        raise NotImplementedError
+
+    def load(self, clean: str) -> str:
+        raise NotImplementedError</code></pre>
+            <div class="demo-output" data-demo-output="template-method">等待运行...</div>
+          </div>
+        </section>
+
+        <section class="pattern-panel" data-pattern-panel="facade">
+          <header class="pattern-head">
+            <h3>Facade：复杂子系统，对外只给一个清晰入口</h3>
+            <p>关键词：统一入口、隐藏编排复杂度、降低调用方负担。</p>
+          </header>
+          <p>
+            Facade 不是消灭复杂性，而是把复杂性留在该留的地方。下单、支付、物流、库存、通知，这些子系统可能都很复杂，但调用方没必要每次都重新写一遍编排逻辑。
+          </p>
+          <p>
+            在 AI 时代，这一点格外关键。模型很容易在多个地方各写一遍“预占库存 -> 扣款 -> 发货”的流程，这类重复编排一旦散开，后续维护会非常痛苦。Facade 的意义就是把高频协作流程集中起来。
+          </p>
+          <ul>
+            <li>适合：下单、支付、转码、聚合搜索、导出流程。</li>
+            <li>好处：调用方只面对一个高层接口，不承担底层协作细节。</li>
+          </ul>
+
+          <div class="demo-box">
+            <div class="demo-toolbar">
+              <button type="button" data-run-demo="facade">运行 demo</button>
+              <button type="button" data-copy-code="code-facade">复制代码</button>
+            </div>
+            <pre id="code-facade"><code>class Inventory:
+    def reserve(self, sku: str) -> str:
+        return f"reserved:{sku}"
+
+
+class Payment:
+    def charge(self, user: str, amount: float) -> str:
+        return f"charged:{user}:{amount}"
+
+
+class Shipping:
+    def create(self, sku: str) -> str:
+        return f"ship:{sku}"
+
+
+class OrderFacade:
+    def place(self, user: str, sku: str, amount: float) -> list[str]:
+        return [
+            Inventory().reserve(sku),
+            Payment().charge(user, amount),
+            Shipping().create(sku),
+        ]</code></pre>
+            <div class="demo-output" data-demo-output="facade">等待运行...</div>
+          </div>
+        </section>
+      </section>
+
+      <section class="section-block">
+        <h2>四、10 个模式放在一起时，应该怎么选</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>真正的问题</th>
+              <th>优先考虑的模式</th>
+              <th>判断句</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>同一个目标有多种算法</td>
+              <td>Strategy</td>
+              <td>变化的是算法，不是主流程</td>
+            </tr>
+            <tr>
+              <td>对象创建过程会变化</td>
+              <td>Factory Method</td>
+              <td>使用方不该知道具体实现如何被创建</td>
+            </tr>
+            <tr>
+              <td>要切换整套兼容组件</td>
+              <td>Abstract Factory</td>
+              <td>你需要的不是一个对象，而是一整套一致系统</td>
+            </tr>
+            <tr>
+              <td>一个事件要通知多个响应者</td>
+              <td>Observer</td>
+              <td>发布方不应认识所有消费者</td>
+            </tr>
+            <tr>
+              <td>旧接口和新接口不兼容</td>
+              <td>Adapter</td>
+              <td>补翻译层，而不是大拆旧系统</td>
+            </tr>
+            <tr>
+              <td>横切能力需要可叠加</td>
+              <td>Decorator</td>
+              <td>增强职责，而不是复制子类</td>
+            </tr>
+            <tr>
+              <td>访问前要做控制</td>
+              <td>Proxy</td>
+              <td>接口不变，访问行为改变</td>
+            </tr>
+            <tr>
+              <td>流程骨架稳定，步骤局部可变</td>
+              <td>Template Method</td>
+              <td>先定骨架，再开放步骤</td>
+            </tr>
+            <tr>
+              <td>子系统太复杂，对外要统一入口</td>
+              <td>Facade</td>
+              <td>调用方不该承担编排复杂度</td>
+            </tr>
+            <tr>
+              <td>确实需要全局唯一实例</td>
+              <td>Singleton</td>
+              <td>但先确认是否应该交给容器管理</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section-block">
+        <h2>五、AI Coding 时代最常见的模式误用</h2>
+        <p>
+          今天最危险的问题，不是“开发者不会设计模式”，而是“模型学会几个模式名字后开始到处套壳”。这会让系统表面上看起来很工程化，实际上只是多了一层层没有必要的结构噪音。
+        </p>
+        <ul>
+          <li>为了抽象而抽象：明明只有一个实现，也先造接口、工厂和代理。</li>
+          <li>用 Singleton 掩盖依赖传递：把依赖注入偷懒成全局状态。</li>
+          <li>把 Observer 误当异步银弹：任何事都发事件，最终一致性和时序全乱。</li>
+          <li>把 Decorator、Proxy、Adapter 混为一谈：只看结构，不看意图。</li>
+          <li>把 Template Method 用成继承地狱：层级越来越深，扩展点越来越碎。</li>
+        </ul>
+
+        <div class="note-box">
+          <strong>一个务实结论：</strong>
+          最好的设计模式使用方式，不是“模式越多越高级”，而是“只有在真实变化出现时，才精确地引入恰当模式”。
+        </div>
+      </section>
+
+      <section class="section-block">
+        <h2>六、为什么 Spring、Django、Flask、Requests 这些框架会反复使用这些模式</h2>
+        <p>
+          因为这些模式和框架面对的问题天然同构。Spring 需要 IOC，于是创建逻辑必须抽离；它需要 AOP，于是代理机制成为核心；它需要模板化数据库访问，于是 Template Method 变成基础骨架。
+          Django 需要信号系统，于是 Observer 思想自然出现；Flask 需要延迟创建应用对象，于是工厂思想很自然；Requests 需要对不同传输层做统一封装，于是 Adapter 结构非常合理。<span class="cite-ref"><a href="#ref-3">[3]</a><a href="#ref-5">[5]</a><a href="#ref-6">[6]</a><a href="#ref-7">[7]</a><a href="#ref-8">[8]</a><a href="#ref-9">[9]</a></span>
+        </p>
+        <p>
+          这件事对 AI Coding 的意义非常直接：如果你不理解框架底层依赖的是哪类结构，模型就会为你生成“能跑，但不顺着框架哲学”的代码。短期可能能过，长期会非常难维护。
+        </p>
+      </section>
+
+      <section class="section-block">
+        <h2>七、最后的判断：AI Coding 时代最值钱的不是写出第一版，而是第五次迭代后还站得住</h2>
+        <p>
+          设计模式在今天真正重要，不是因为它们属于经典，而是因为它们刚好提供了一套跨时代都稳定有效的结构判断工具。
+          当 AI 让代码生成变得极快时，人类最值钱的能力就不再是“我能敲出来”，而是“我知道这段代码之后会朝哪里腐化，以及该如何在一开始就把腐化路径切断”。
+        </p>
+        <p>
+          所以，理解设计模式，并不是为了把系统写得更像教科书；而是为了在 AI 带来的速度优势面前，仍然守住软件工程最本质的东西：边界、替换、演化、测试、协作。
+        </p>
+
+        <div class="argument-box">
+          <strong>一句收束全文的话：</strong>
+          AI Coding 时代，真正稀缺的不是代码，而是结构。设计模式正是结构思维最短、最稳、最经得起时间检验的训练路径之一。
+        </div>
+      </section>
+
+      <hr class="essay-divider">
+
+      <section class="section-block">
+        <h2>参考文献</h2>
+        <div class="ref-box">
+          <div class="ref-list-html">
+            <p class="ref-item" id="ref-1"><a class="ref-index" href="https://refactoring.guru/design-patterns/catalog" target="_blank" rel="noopener noreferrer">[1]</a> Refactoring.Guru. <em>Design Patterns Catalog</em>.</p>
+            <p class="ref-item" id="ref-2"><a class="ref-index" href="https://martinfowler.com/articles/injection.html" target="_blank" rel="noopener noreferrer">[2]</a> Fowler, M. <em>Inversion of Control Containers and the Dependency Injection Pattern</em>.</p>
+            <p class="ref-item" id="ref-3"><a class="ref-index" href="https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html" target="_blank" rel="noopener noreferrer">[3]</a> Spring Framework Reference. <em>Bean Scopes</em>.</p>
+            <p class="ref-item" id="ref-4"><a class="ref-index" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationEventPublisher.html" target="_blank" rel="noopener noreferrer">[4]</a> Spring Framework Javadoc. <em>ApplicationEventPublisher</em>.</p>
+            <p class="ref-item" id="ref-5"><a class="ref-index" href="https://docs.spring.io/spring-framework/reference/core/aop/proxying.html" target="_blank" rel="noopener noreferrer">[5]</a> Spring Framework Reference. <em>Proxying Mechanisms</em>.</p>
+            <p class="ref-item" id="ref-6"><a class="ref-index" href="https://docs.spring.io/spring-framework/reference/data-access/jdbc/core.html" target="_blank" rel="noopener noreferrer">[6]</a> Spring Framework Reference. <em>JDBC Core and JdbcTemplate</em>.</p>
+            <p class="ref-item" id="ref-7"><a class="ref-index" href="https://docs.djangoproject.com/en/stable/topics/signals/" target="_blank" rel="noopener noreferrer">[7]</a> Django Documentation. <em>Signals</em>.</p>
+            <p class="ref-item" id="ref-8"><a class="ref-index" href="https://flask.palletsprojects.com/en/stable/patterns/appfactories/" target="_blank" rel="noopener noreferrer">[8]</a> Flask Documentation. <em>Application Factories</em>.</p>
+            <p class="ref-item" id="ref-9"><a class="ref-index" href="https://requests.readthedocs.io/en/latest/user/advanced/#transport-adapters" target="_blank" rel="noopener noreferrer">[9]</a> Requests Documentation. <em>Transport Adapters</em>.</p>
+            <p class="ref-item" id="ref-10"><a class="ref-index" href="https://docs.python.org/3/library/abc.html" target="_blank" rel="noopener noreferrer">[10]</a> Python Documentation. <em>abc</em>.</p>
+            <p class="ref-item" id="ref-11"><a class="ref-index" href="https://docs.python.org/3/library/contextlib.html" target="_blank" rel="noopener noreferrer">[11]</a> Python Documentation. <em>contextlib</em>.</p>
+            <p class="ref-item" id="ref-12"><a class="ref-index" href="https://doi.org/10.1016/j.infsof.2015.05.006" target="_blank" rel="noopener noreferrer">[12]</a> Ampatzoglou, A., Chatzigeorgiou, A., Charalampidou, S., and Avgeriou, P. The effect of GoF design patterns on stability: A case study. <em>Information and Software Technology</em>, 2015.</p>
+            <p class="ref-item" id="ref-13"><a class="ref-index" href="https://www.sciencedirect.com/science/article/pii/S0164121216302321" target="_blank" rel="noopener noreferrer">[13]</a> Ampatzoglou, A., et al. The state of the art on software engineering design patterns: A systematic mapping study. <em>Journal of Systems and Software</em>, 2016.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const article = document.getElementById("design-patterns-essay");
+      const navButtons = Array.from(document.querySelectorAll("#pattern-nav button"));
+      const panels = Array.from(document.querySelectorAll("[data-pattern-panel]"));
+
+      function parseRgb(colorValue) {
+        const match = colorValue && colorValue.match(/\d+(\.\d+)?/g);
+        if (!match || match.length < 3) {
+          return null;
+        }
+        return match.slice(0, 3).map(Number);
+      }
+
+      function luminance(rgb) {
+        return (0.299 * rgb[0]) + (0.587 * rgb[1]) + (0.114 * rgb[2]);
+      }
+
+      function mixRgb(source, target, weight) {
+        return source.map(function (channel, index) {
+          return Math.round((channel * (1 - weight)) + (target[index] * weight));
+        });
+      }
+
+      function toRgbString(rgb) {
+        return "rgb(" + rgb.join(", ") + ")";
+      }
+
+      function toRgbaString(rgb, alpha) {
+        return "rgba(" + rgb.join(", ") + ", " + alpha + ")";
+      }
+
+      function applyEssayPalette(backgroundRgb) {
+        const isDark = luminance(backgroundRgb) < 156;
+        const oceanLight = [241, 248, 253];
+        const oceanDark = [15, 22, 28];
+        const textBase = isDark ? mixRgb(backgroundRgb, [237, 247, 255], 0.84) : mixRgb(backgroundRgb, [19, 28, 37], 0.94);
+        const textStrong = isDark ? mixRgb(backgroundRgb, [250, 253, 255], 0.92) : mixRgb(backgroundRgb, [10, 17, 24], 0.97);
+        const textMuted = isDark ? mixRgb(textBase, backgroundRgb, 0.22) : mixRgb(textBase, backgroundRgb, 0.3);
+        const kicker = isDark ? mixRgb(textBase, [146, 188, 214], 0.4) : mixRgb(textMuted, [78, 108, 133], 0.5);
+        const border = isDark ? toRgbaString(mixRgb(backgroundRgb, [232, 246, 255], 0.3), 0.34) : toRgbaString(mixRgb(backgroundRgb, [58, 95, 126], 0.82), 0.22);
+        const borderSoft = isDark ? toRgbaString(mixRgb(backgroundRgb, [232, 246, 255], 0.2), 0.24) : toRgbaString(mixRgb(backgroundRgb, [58, 95, 126], 0.58), 0.14);
+        const panelBg = isDark ? toRgbString(mixRgb(backgroundRgb, oceanLight, 0.1)) : toRgbString(mixRgb(backgroundRgb, oceanLight, 0.58));
+        const panelStrongBg = isDark ? toRgbString(mixRgb(backgroundRgb, oceanLight, 0.16)) : toRgbString(mixRgb(backgroundRgb, [228, 239, 247], 0.72));
+        const heroStart = isDark ? toRgbString(mixRgb(backgroundRgb, oceanLight, 0.08)) : toRgbString(mixRgb(backgroundRgb, [244, 250, 253], 0.74));
+        const heroEnd = isDark ? toRgbString(mixRgb(backgroundRgb, oceanDark, 0.2)) : toRgbString(mixRgb(backgroundRgb, [236, 244, 249], 0.7));
+        const heroGrid = isDark ? toRgbaString(mixRgb(backgroundRgb, oceanLight, 0.44), 0.08) : toRgbaString(mixRgb(backgroundRgb, [61, 93, 119], 0.66), 0.05);
+        const summaryBg = isDark ? toRgbaString(mixRgb(backgroundRgb, oceanLight, 0.14), 0.86) : toRgbaString(mixRgb(backgroundRgb, [255, 255, 255], 0.72), 0.92);
+        const buttonBg = isDark ? toRgbString(mixRgb(backgroundRgb, oceanLight, 0.12)) : toRgbString(mixRgb(backgroundRgb, [242, 247, 251], 0.66));
+        const buttonText = toRgbString(textStrong);
+        const buttonActiveBg = isDark ? toRgbString(mixRgb(backgroundRgb, oceanLight, 0.84)) : toRgbString(mixRgb(backgroundRgb, oceanDark, 0.92));
+        const buttonActiveText = isDark ? toRgbString(mixRgb(backgroundRgb, oceanDark, 0.94)) : toRgbString(mixRgb(backgroundRgb, [245, 251, 255], 0.96));
+        const codeBg = isDark ? toRgbString(mixRgb(backgroundRgb, [14, 22, 29], 0.42)) : toRgbString(mixRgb(backgroundRgb, [238, 244, 248], 0.76));
+        const codeInlineBg = isDark ? toRgbString(mixRgb(backgroundRgb, [55, 74, 89], 0.48)) : toRgbString(mixRgb(backgroundRgb, [230, 238, 244], 0.8));
+        const codeText = isDark ? toRgbString(mixRgb(backgroundRgb, [238, 248, 255], 0.92)) : toRgbString(mixRgb(backgroundRgb, [18, 31, 44], 0.94));
+        const outputBg = isDark ? toRgbString(mixRgb(backgroundRgb, [232, 245, 252], 0.86)) : toRgbString(mixRgb(backgroundRgb, [24, 37, 49], 0.92));
+        const outputText = isDark ? toRgbString(mixRgb(backgroundRgb, [12, 22, 30], 0.94)) : toRgbString(mixRgb(backgroundRgb, [239, 248, 255], 0.94));
+        const link = isDark ? toRgbString(mixRgb(backgroundRgb, [154, 222, 255], 0.9)) : toRgbString(mixRgb(backgroundRgb, [30, 95, 134], 0.94));
+        const linkBorder = isDark ? toRgbaString(mixRgb(backgroundRgb, [154, 222, 255], 0.84), 0.52) : toRgbaString(mixRgb(backgroundRgb, [30, 95, 134], 0.92), 0.34);
+        const linkBorderHover = isDark ? toRgbaString(mixRgb(backgroundRgb, [154, 222, 255], 0.96), 0.96) : toRgbaString(mixRgb(backgroundRgb, [30, 95, 134], 0.98), 0.84);
+        const accent = isDark ? toRgbString(mixRgb(backgroundRgb, [140, 201, 233], 0.82)) : toRgbString(mixRgb(backgroundRgb, [61, 122, 162], 0.9));
+
+        article.style.setProperty("--essay-text", toRgbString(textBase));
+        article.style.setProperty("--essay-text-strong", toRgbString(textStrong));
+        article.style.setProperty("--essay-text-muted", toRgbString(textMuted));
+        article.style.setProperty("--essay-kicker", toRgbString(kicker));
+        article.style.setProperty("--essay-border", border);
+        article.style.setProperty("--essay-border-soft", borderSoft);
+        article.style.setProperty("--essay-panel-bg", panelBg);
+        article.style.setProperty("--essay-panel-strong-bg", panelStrongBg);
+        article.style.setProperty("--essay-hero-bg-start", heroStart);
+        article.style.setProperty("--essay-hero-bg-end", heroEnd);
+        article.style.setProperty("--essay-hero-grid", heroGrid);
+        article.style.setProperty("--essay-summary-bg", summaryBg);
+        article.style.setProperty("--essay-button-bg", buttonBg);
+        article.style.setProperty("--essay-button-text", buttonText);
+        article.style.setProperty("--essay-button-active-bg", buttonActiveBg);
+        article.style.setProperty("--essay-button-active-text", buttonActiveText);
+        article.style.setProperty("--essay-code-bg", codeBg);
+        article.style.setProperty("--essay-code-inline-bg", codeInlineBg);
+        article.style.setProperty("--essay-code-text", codeText);
+        article.style.setProperty("--essay-output-bg", outputBg);
+        article.style.setProperty("--essay-output-text", outputText);
+        article.style.setProperty("--essay-link", link);
+        article.style.setProperty("--essay-link-border", linkBorder);
+        article.style.setProperty("--essay-link-border-hover", linkBorderHover);
+        article.style.setProperty("--essay-accent", accent);
+        article.dataset.tone = isDark ? "dark" : "light";
+      }
+
+      function resolveBackgroundColor(node) {
+        let current = node;
+        while (current) {
+          const style = window.getComputedStyle(current);
+          const rgb = parseRgb(style.backgroundColor);
+          if (rgb && style.backgroundColor !== "rgba(0, 0, 0, 0)" && style.backgroundColor !== "transparent") {
+            return rgb;
+          }
+          current = current.parentElement;
+        }
+        return [255, 255, 255];
+      }
+
+      function applyEssayTone() {
+        if (!article) {
+          return;
+        }
+        const rgb = resolveBackgroundColor(article.parentElement || document.body);
+        applyEssayPalette(rgb);
+      }
+
+      applyEssayTone();
+      window.addEventListener("load", applyEssayTone);
+      window.addEventListener("resize", applyEssayTone);
+
+      function activatePanel(name) {
+        navButtons.forEach((button) => {
+          button.classList.toggle("is-active", button.dataset.patternTarget === name);
+        });
+        panels.forEach((panel) => {
+          panel.classList.toggle("is-active", panel.dataset.patternPanel === name);
+        });
+      }
+
+      if (navButtons.length > 0) {
+        activatePanel("strategy");
+        navButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            activatePanel(button.dataset.patternTarget);
+          });
+        });
+      }
+
+      const demoOutputs = {
+        strategy: "amount = 1000\nstrategy = PercentageDiscount(0.2)\ncheckout.total(amount) -> 800.0",
+        observer: "publish('order_paid')\n-> inventory listener fired\n-> coupon listener fired\n-> email listener fired",
+        factory: "creator = HtmlReportCreator()\ncreator.create_report().render()\n-> <p>ok</p>",
+        "abstract-factory": "factory = DarkThemeFactory()\nfactory.create_button() -> dark-button\nfactory.create_dialog() -> dark-dialog",
+        singleton: "a = AppConfig()\nb = AppConfig()\na is b -> True\nb.debug reflects a.debug",
+        adapter: "SmsAdapter.send('13800000000', 'hello')\n-> LegacySmsService.send_sms(...)\n-> SMS to 13800000000: hello",
+        decorator: "BaseSender('hello')\n-> TimestampDecorator\n-> output: send:[2026-05-22] hello",
+        proxy: "AccessProxy.read('report.csv') -> content(report.csv)\nAccessProxy.read('salary.xlsx') -> PermissionError",
+        "template-method": "run()\n-> extract()\n-> transform()\n-> load()\n流程顺序由模板保证",
+        facade: "OrderFacade.place('alice', 'book-1', 99.0)\n-> reserved:book-1\n-> charged:alice:99.0\n-> ship:book-1"
+      };
+
+      document.querySelectorAll("[data-run-demo]").forEach((button) => {
+        button.addEventListener("click", function () {
+          const key = button.dataset.runDemo;
+          const output = document.querySelector('[data-demo-output="' + key + '"]');
+          if (output) {
+            output.textContent = demoOutputs[key] || "暂无输出";
+          }
+        });
+      });
+
+      document.querySelectorAll("[data-copy-code]").forEach((button) => {
+        button.addEventListener("click", async function () {
+          const source = document.getElementById(button.dataset.copyCode);
+          if (!source) {
+            return;
+          }
+          try {
+            await navigator.clipboard.writeText(source.textContent || "");
+            const oldText = button.textContent;
+            button.textContent = "已复制";
+            setTimeout(function () {
+              button.textContent = oldText;
+            }, 1200);
+          } catch (error) {
+            button.textContent = "复制失败";
+          }
+        });
+      });
+    })();
+  </script>
+</article>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#software-engineering">software-engineering</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#ai-coding">ai-coding</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#design-patterns">design-patterns</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#python">python</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#software-architecture">software-architecture</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/graph-learning/2026/05/13/GNN%E9%87%8F%E5%8C%96%E5%BA%94%E7%94%A8%E4%B8%8E%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%90%86%E8%AE%BA%E7%BB%BC%E8%BF%B0.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> GNN 算法如何用于量化选股：从量化因子到图神经网络理论、应用、原理与文献综述
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/software-engineering/2026/05/23/AI-Coding-%E5%AE%8C%E6%95%B4%E6%96%B9%E6%B3%95%E8%AE%BA.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            AI Coding 完整方法论: 从让模型写代码, 到建立受约束的工程协作系统
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2003&nbsp;-&nbsp;2026 vortezwohl; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>vortezwohl&#39;s blog</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>
