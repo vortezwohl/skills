@@ -2,7 +2,7 @@
 
 ## Preservation contract
 
-- The complete supplied webpage is archived without omission in `source-original.html` (71,386 UTF-8 bytes; SHA-256 `2c70c5a20aaa197381d341550ec317472768b2236650f5e648a4a7e2cdfa55ba`). Read it whenever exact wording, every original Python demo, rendered table, metadata, or bibliography detail is needed.
+- The complete supplied webpage is archived without omission in `source-original.md`. Read it whenever exact wording, every original Python demo, rendered table, metadata, or bibliography detail is needed.
 - This English guide is the agent-oriented translation index. It preserves every substantive claim, decision rule, pattern scope, applicability rule, risk, framework mapping, and conclusion; the raw source remains the authority for source-level fidelity.
 
 ## Article metadata and thesis
