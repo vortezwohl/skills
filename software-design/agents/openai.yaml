@@ -1,4 +1,0 @@
-interface:
-  display_name: "Software Design"
-  short_description: "Teach and govern design-pattern decisions"
-  default_prompt: "Use $software-design to design or refactor this software with the smallest justified pattern set."
