@@ -1,0 +1,7 @@
+interface:
+  display_name: "Prompt Design"
+  short_description: "Design and validate structured prompts"
+  default_prompt: "Use $prompt-design to design, rewrite, or review a structured prompt with a strict output contract."
+
+policy:
+  allow_implicit_invocation: true
