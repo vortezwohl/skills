@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Architect"
+  short_description: "Architecture guardrails with compatibility and consent gates"
+  default_prompt: "Use $agent-architect to resolve compatibility intent, inspect the repository, propose the smallest justified architecture, obtain approval, and verify the result."
